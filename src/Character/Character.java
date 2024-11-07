@@ -112,12 +112,17 @@ public class Character {
     }
 
     public void addTechnique(Technique technique) {
+
         this.techniques.add(technique);
+
     }
 
     public void removeTechnique(Technique technique) {
+
         this.techniques.remove(technique);
     }
+
+    Technique Chute = new Technique("chute", 20, 10, "Corpo-a-Corpo", 20, "O personagem realiza um chute aéreo no adversario");
 
     public void displayStatus() {
         System.out.println("Character Status:");
