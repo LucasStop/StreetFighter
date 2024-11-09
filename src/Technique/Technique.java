@@ -19,58 +19,61 @@ public class Technique {
         this.cooldown = cooldown;
         this.description = description;
     }
-    public String getName() {
-        return name;
+    public String getName(){
+        return this.name;
+
     }
-    public void setName(String name) {
+    public void setName(String name){
         this.name = name;
+
     }
-    public int getPower() {
-        return power;
+    public int getPower(){
+        return this.power;
+
     }
-    public void setPower(int power) {
+    public void setPower(int power){
         this.power = power;
+
     }
-    public int getEnergyCost() {
-        return energyCost;
+    public int getEnergyCost(){
+        return this.energyCost;
+
     }
-    public void setEnergyCost(int energyCost){
-            this.energyCost = energyCost;
-        }
-    public String getType() {
-        return type;
+    public void setenergyCost(int energyCost){
+        this.energyCost = energyCost;
+
+    }
+    public String getType(){
+        return this.type;
+
     }
     public void setType(String type){
         this.type = type;
+
     }
-    public int getCooldown() {
-        return cooldown;
+    public int getCooldown(){
+        return this.cooldown;
+
     }
     public void setCooldown(int cooldown){
-                this.cooldown = cooldown;
-            }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public int getHealingPower(){
-        return healingPower;
-    }
-    public void SetHealingPower(int healingPower){
-        this.healingPower = healingPower;
-    }
+        this.cooldown = cooldown;
 
-    public void applyEffect(Character target) {
-        System.out.println(getName() + " ativou uma técnica!");
     }
+    public String getDescription(){
+        return this.description;
 
-    public abstract void applyEffect(Character target);
+    }
+    public void setDescription(String description){
+        this.description;
 
-@Override
-public String toString() {
-        return String.format("Técnica: %s\nTipo: %s\nPotência: %d\nCusto de Energia: %d\nCooldown: %d turnos\nDescrição: %s",
-                name, type, power, energyCost, cooldown, description);
+    }
+    public void displayInfo(){
+        System.out.println("Character Info");
+        System.out.println("Technique Name:" + this.name);
+        System.out.println("Power" + this.power);
+        System.out.println("EnergyCost" + this.energyCost);
+        System.out.println("Type" + this.type);
+        System.out.println("Cooldown" + this.cooldown);
+        System.out.println("Description" + this.description);
     }
 }
