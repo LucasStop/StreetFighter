@@ -19,55 +19,75 @@ public class Technique {
         this.cooldown = cooldown;
         this.description = description;
     }
-    public String getName(){
+
+    public String getName() {
         return this.name;
 
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
 
     }
-    public int getPower(){
+
+    public int getPower() {
         return this.power;
 
     }
-    public void setPower(int power){
+
+    public void setPower(int power) {
         this.power = power;
 
     }
-    public int getEnergyCost(){
+
+    public int getEnergyCost() {
         return this.energyCost;
 
     }
-    public void setenergyCost(int energyCost){
+
+    public void setenErgyCost(int energyCost) {
         this.energyCost = energyCost;
 
     }
-    public String getType(){
+
+    public String getType() {
         return this.type;
 
     }
-    public void setType(String type){
+
+    public void setType(String type) {
         this.type = type;
 
     }
-    public int getCooldown(){
+
+    public int getCooldown() {
         return this.cooldown;
 
     }
-    public void setCooldown(int cooldown){
+
+    public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
 
     }
-    public String getDescription(){
+
+    public String getDescription() {
         return this.description;
 
     }
-    public void setDescription(String description){
-        this.description;
+
+    public void setDescription(String description) {
+        this.description; =description;
+    }
+
+    public void applyEffect(int effect) {
+        if (effect <1) return;
+        this.energyCost -= effect;
+        if(this.energyCost <1) this.energyCost = 1
 
     }
-    public void displayInfo(){
+
+
+    public void displayInfo() {
         System.out.println("Character Info");
         System.out.println("Technique Name:" + this.name);
         System.out.println("Power" + this.power);

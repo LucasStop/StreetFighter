@@ -2,7 +2,7 @@ package Technique;
 
 import Character.Character;
 
-public class TechniqueAttack extends Technique  {
+public class TechniqueAttack extends Technique {
     private int critChance;
     private double critMultiplier = 2.0;
 
@@ -11,6 +11,13 @@ public class TechniqueAttack extends Technique  {
         this.critChance = critChance;
 
     }
+
+    @Override
+    public void applyEffect(int effect) {
+        super.applyEffect();
+
+    }
+
     public void displayinfo(){
         System.out.println("Attack Information");
         System.out.println("Name:" + this.name +);
