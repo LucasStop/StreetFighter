@@ -96,8 +96,3 @@ Após iniciar o projeto, siga as instruções na interface para criar ou selecio
 3. Utilize diferentes técnicas para derrotar seus oponentes e avançar no torneio.
 
 ## Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests com melhorias. Por favor, siga as diretrizes abaixo ao contribuir:
-- Descreva suas alterações de maneira detalhada em cada commit.
-- Garanta que o código está bem documentado e organizado.
-- Teste suas mudanças antes de enviar o pull request.
