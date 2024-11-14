@@ -1,10 +1,12 @@
 package Tournament;
 
+import Player.Player;
+
 import java.util.ArrayList;
 
 public abstract class Tournament implements TournamentInterface {
     protected String name;
-    protected ArrayList<Character> participants;
+    protected ArrayList<Player> participants;
     protected String prize;
     protected int maxParticipants;
 
@@ -17,9 +19,9 @@ public abstract class Tournament implements TournamentInterface {
 
     public String getName() { return this.name; }
     public String getPrize() { return this.prize; }
-    public ArrayList<Character> getParticipants() { return this.participants; }
+    public ArrayList<Player> getParticipants() { return this.participants; }
 
-    public void addParticipant(Character character) throws Exception {
+    public void addParticipant(Player character) throws Exception {
         if (this.participants.size() < this.maxParticipants) {
             this.participants.add(character);
         } else {

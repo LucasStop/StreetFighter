@@ -1,9 +1,9 @@
-package Character;
+package Player;
 
-public class CharacterNinja extends Character {
+public class PlayerNinja extends Player {
     private int agility;
 
-    public CharacterNinja(String name, int age, int strength, int speed, int life, int level, int agility) {
+    public PlayerNinja(String name, int age, int strength, int speed, int life, int level, int agility) {
         super(name, age, strength, speed, life, level);
         this.agility = agility;
     }

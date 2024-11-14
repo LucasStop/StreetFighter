@@ -1,6 +1,6 @@
 package Tournament;
 
-import Character.Character;
+import Player.Player;
 
 public class TournamentIndividual extends Tournament {
     private int rounds;
@@ -20,8 +20,8 @@ public class TournamentIndividual extends Tournament {
         }
     }
 
-    public Character startRound(Character character1, Character character2) {
-        Character winner = (character1.getStrength() > character2.getStrength()) ? character1 : character2;
+    public Player startRound(Player player1, Player player2) {
+        Player winner = (player1.getStrength() > player2.getStrength()) ? player1 : player2;
         System.out.println("Vencedor da rodada: " + winner.getName());
         return winner;
     }
@@ -29,7 +29,7 @@ public class TournamentIndividual extends Tournament {
     @Override
     public void declareWinner() {
         if (!participants.isEmpty()) {
-            Character winner = participants.getFirst();
+            Player winner = participants.getFirst();
             System.out.println("O vencedor do torneio individual é " + winner.getName() + "!");
         } else {
             System.out.println("Nenhum participante para declarar vencedor.");

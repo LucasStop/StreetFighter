@@ -1,6 +1,6 @@
 package Technique;
 
-import Character.Character;
+import Player.Player;
 
 public class Technique {
     private String name;
@@ -43,7 +43,7 @@ public class Technique {
         return description;
     }
 
-    public void applyEffect(Character target) {
+    public void applyEffect(Player target) {
         System.out.println(getName() + " ativou uma técnica!");
     }
 }

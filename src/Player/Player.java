@@ -1,10 +1,10 @@
-package Character;
+package Player;
 
 import Technique.Technique;
 
 import java.util.ArrayList;
 
-public class Character {
+public class Player {
     private String name;
     private int age;
     private int strength;
@@ -14,7 +14,7 @@ public class Character {
     private int level;
     private ArrayList<Technique> techniques;
 
-    public Character(String name, int age, int strength, int speed, int life, int level) {
+    public Player(String name, int age, int strength, int speed, int life, int level) {
         this.name = name;
         this.age = age;
         this.strength = strength;

@@ -1,6 +1,6 @@
 package Technique;
 
-import Character.Character;
+import Player.Player;
 
 public class TechniqueDefense extends Technique {
     private int defeseBoost;
@@ -14,7 +14,7 @@ public class TechniqueDefense extends Technique {
     }
 
     @Override
-    public void applyEffect(Character target) {
+    public void applyEffect(Player target) {
         System.out.println(getName() + " ativou uma defesa!");
     }
 }

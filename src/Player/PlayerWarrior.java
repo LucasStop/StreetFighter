@@ -1,10 +1,10 @@
-package Character;
+package Player;
 
-public class CharacterWarrior extends Character {
+public class PlayerWarrior extends Player {
     private int armor;
     private int stamina;
 
-    public CharacterWarrior(String name, int age, int strength, int speed, int life, int level, int armor, int stamina) {
+    public PlayerWarrior(String name, int age, int strength, int speed, int life, int level, int armor, int stamina) {
         super(name, age, strength, speed, life, level);
         this.armor = armor;
         this.stamina = stamina;
