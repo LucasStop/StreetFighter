@@ -1,6 +1,7 @@
 package Technique;
 
-import Player.Player;
+import Character.Character;
+import java.util.Random;
 
 public class Technique {
     private String name;
@@ -20,30 +21,79 @@ public class Technique {
     }
 
     public String getName() {
-        return name;
+        return this.name;
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+
     }
 
     public int getPower() {
-        return power;
+        return this.power;
+
+    }
+
+    public void setPower(int power) {
+        this.power = power;
+
     }
 
     public int getEnergyCost() {
-        return energyCost;
+        return this.energyCost;
+
+    }
+
+    public void setenErgyCost(int energyCost) {
+        this.energyCost = energyCost;
+
     }
 
     public String getType() {
-        return type;
+        return this.type;
+
+    }
+
+    public void setType(String type) {
+        this.type = type;
+
     }
 
     public int getCooldown() {
-        return cooldown;
+        return this.cooldown;
+
+    }
+
+    public void setCooldown(int cooldown) {
+        this.cooldown = cooldown;
+
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
+
     }
 
-    public void applyEffect(Player target) {
-        System.out.println(getName() + " ativou uma técnica!");
+    public void setDescription(String description) {
+        this.description; =description;
+    }
+
+    public void applyEffect(int effect) {
+        if (effect <1) return;
+        this.energyCost -= effect;
+        if(this.energyCost <1) this.energyCost = 1
+
+    }
+
+
+    public void displayInfo() {
+        System.out.println("Character Info");
+        System.out.println("Technique Name:" + this.name);
+        System.out.println("Power" + this.power);
+        System.out.println("EnergyCost" + this.energyCost);
+        System.out.println("Type" + this.type);
+        System.out.println("Cooldown" + this.cooldown);
+        System.out.println("Description" + this.description);
     }
 }
