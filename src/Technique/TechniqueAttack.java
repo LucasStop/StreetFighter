@@ -1,30 +1,28 @@
 package Technique;
 
-import Character.Character;
+import Player.Player;
 
 public class TechniqueAttack extends Technique {
     private int critChance;
     private double critMultiplier = 2.0;
 
-    public TechniqueAttack(String name, int power, int energyCost, int cooldown) {
-        super(name, power, energyCost, "Tecnica.Ataque", cooldown, "Dano");
+    public TechniqueAttack(String name, int power, int energyCost, int cooldown, int critChance) {
+        super(name, power, energyCost, "Ataque", cooldown, "Dano");
         this.critChance = critChance;
-
     }
 
     @Override
     public void applyEffect(int effect) {
-        super.applyEffect();
-
+        super.applyEffect(effect);
     }
 
-    public void displayinfo(){
+    public void displayInfo() {
         System.out.println("Attack Information");
-        System.out.println("Name:" + this.name +);
-        System.out.println("Power:" + this.power);
-        System.out.println("EnergyCost:" + this.energyCost);
-        System.out.println("Type" + this.type);
-        System.out.println("Cooldown" + this.cooldown);
-        System.out.println("Description" + this.description);
+        System.out.println("Name: " + getName());
+        System.out.println("Power: " + getPower());
+        System.out.println("EnergyCost: " + getEnergyCost());
+        System.out.println("Type: " + getType());
+        System.out.println("Cooldown: " + getCooldown());
+        System.out.println("Description: " + getDescription());
     }
 }

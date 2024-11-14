@@ -1,7 +1,6 @@
 package Technique;
 
-import Character.Character;
-import java.util.Random;
+import Player.Player;
 
 public class Technique {
     private String name;
@@ -22,17 +21,14 @@ public class Technique {
 
     public String getName() {
         return this.name;
-
     }
 
     public void setName(String name) {
         this.name = name;
-
     }
 
     public int getPower() {
         return this.power;
-
     }
 
     public void setPower(int power) {
@@ -42,50 +38,42 @@ public class Technique {
 
     public int getEnergyCost() {
         return this.energyCost;
-
     }
 
-    public void setenErgyCost(int energyCost) {
+    public void setEnergyCost(int energyCost) {
         this.energyCost = energyCost;
-
     }
+
 
     public String getType() {
         return this.type;
-
     }
 
     public void setType(String type) {
         this.type = type;
-
     }
 
     public int getCooldown() {
         return this.cooldown;
-
     }
 
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;
-
     }
 
     public String getDescription() {
         return this.description;
-
     }
 
     public void setDescription(String description) {
-        this.description; =description;
+        this.description = description;
     }
 
     public void applyEffect(int effect) {
-        if (effect <1) return;
+        if (effect < 1) return;
         this.energyCost -= effect;
-        if(this.energyCost <1) this.energyCost = 1
-
+        if (this.energyCost < 1) this.energyCost = 1;
     }
-
 
     public void displayInfo() {
         System.out.println("Character Info");

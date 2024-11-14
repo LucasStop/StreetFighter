@@ -1,51 +1,36 @@
 package Technique;
 
-import Character.Character;
+import Player.Player;
 
 public class TechniqueDefense extends Technique {
-    private int defeseBoost;
+    private int defenseBoost;
 
-    public TechniqueDefense(String name, int power, int energyCost, String type, int cooldown, String description) {
-        super(name, 0, power, energyCost"Defesa", type, cooldown, description);
+    public TechniqueDefense(String name, int power, int energyCost, int cooldown, String description, int defenseBoost) {
+        super(name, power, energyCost, "Defesa", cooldown, description);
         this.defenseBoost = defenseBoost;
-
     }
-    package Technique;
 
-import Character.Character;
+    public int getDefenseBoost() {
+        return defenseBoost;
+    }
 
-    public class TechniqueAttack extends Technique  {
-        private int critChance;
-        private double critMultiplier = 2.0;
+    public void setDefenseBoost(int defenseBoost) {
+        this.defenseBoost = defenseBoost;
+    }
 
-        public TechniqueAttack(String name, int power, int energyCost, int cooldown) {
-            super(name, power, energyCost, "Tecnica.Ataque", cooldown, "Dano");
-            this.critChance = critChance;
+    @Override
+    public void applyEffect(int effect) {
+        super.applyEffect(effect);
+    }
 
-        }
-
-        public int getDefenseBoost() {
-            return defenseBoost;
-        }
-
-        public void setDefenseBoost(int defenseBoost) {
-            this.defenseBoost = defenseBoost;
-        }
-
-        @Override
-        public void applyEffect(int effect) {
-            super.applyEffect();
-
-        }
-
-    public void displayinfo() {
+    public void displayInfo() {
         System.out.println("Defense Information");
-        System.out.println("Name:" + this.name +);
-        System.out.println("Power:" + this.power);
-        System.out.println("EnergyCost:" + this.energyCost);
-        System.out.println("Type" + this.type);
-        System.out.println("Cooldown" + this.cooldown);
-        System.out.println("Description" + this.description);
-        System.out.println("DefenseBoost" + this.defenseBoost);
+        System.out.println("Name: " + getName());
+        System.out.println("Power: " + getPower());
+        System.out.println("EnergyCost: " + getEnergyCost());
+        System.out.println("Type: " + getType());
+        System.out.println("Cooldown: " + getCooldown());
+        System.out.println("Description: " + getDescription());
+        System.out.println("DefenseBoost: " + getDefenseBoost());
     }
 }
