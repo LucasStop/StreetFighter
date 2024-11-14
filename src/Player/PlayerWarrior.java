@@ -20,22 +20,26 @@ public class PlayerWarrior extends Player {
         this.armor = armor;
     }
 
-    public  int getStamina(){
+    public int getStamina() {
         return stamina;
     }
-    public void setStamina(int stamina){
+
+    public void setStamina(int stamina) {
         this.stamina = stamina;
     }
 
-    public void specialattack(){
+    public void specialattack(Player target) {
         int staminaCost = 10;
 
-        if (stamina>=staminaCost){
+        if (stamina >= staminaCost) {
             int damage = 10;
-            target.applydamage(damage);
+            target.applyDamage(damage);
             stamina -= staminaCost;
+        } else {
+            System.out.println("Not enough stamina to perform special attack.");
         }
     }
+
     @Override
     public void applyDamage(int damage) {
         super.applyDamage(damage - armor);
@@ -51,8 +55,9 @@ public class PlayerWarrior extends Player {
         super.levelUp();
         armor += 5;
     }
+
     @Override
-    public void displayStatus(){
+    public void displayStatus() {
         super.displayStatus();
         System.out.println("Stamina " + this.stamina);
     }
