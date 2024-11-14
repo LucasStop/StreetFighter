@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CharacterChooser {
-    public static void chooseCharacter(String type, JTextArea logArea) {
+    public static void chooseCharacter(String type, JTextArea logArea, List<Player> selectedPlayers) {
         List<Player> players = CSVManager.loadCharactersFromCSV(type);
 
         if (players.isEmpty()) {

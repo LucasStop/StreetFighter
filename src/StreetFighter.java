@@ -1,10 +1,16 @@
-import javax.swing.*;
-import java.awt.*;
 import Visual.CharacterChooser;
 import Visual.CharacterCreationWindow;
+import Tournament.TournamentIndividual;
+import Tournament.TournamentTeam;
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import Player.Player;
 
 public class StreetFighter {
     private static JTextArea logArea;
+    private static List<Player> selectedPlayers = new ArrayList<>(); // Armazena os jogadores selecionados para o torneio
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Street Fighter - Torneio");
@@ -20,15 +26,15 @@ public class StreetFighter {
 
         JButton ninjaButton = new JButton("Ninja");
         ninjaButton.setPreferredSize(new Dimension(120, 50));
-        ninjaButton.addActionListener(e -> CharacterChooser.chooseCharacter("Ninja", logArea));
+        ninjaButton.addActionListener(e -> CharacterChooser.chooseCharacter("Ninja", logArea, selectedPlayers));
 
         JButton guerreiroButton = new JButton("Guerreiro");
         guerreiroButton.setPreferredSize(new Dimension(120, 50));
-        guerreiroButton.addActionListener(e -> CharacterChooser.chooseCharacter("Guerreiro", logArea));
+        guerreiroButton.addActionListener(e -> CharacterChooser.chooseCharacter("Guerreiro", logArea, selectedPlayers));
 
         JButton startTournamentButton = new JButton("Iniciar Torneio");
         startTournamentButton.setPreferredSize(new Dimension(150, 50));
-        startTournamentButton.addActionListener(e -> logArea.setText("Implementar lógica para iniciar o torneio com os personagens selecionados.\n"));
+        startTournamentButton.addActionListener(e -> startTournament());
 
         JButton createCharacterButton = new JButton("Criar Personagem");
         createCharacterButton.setPreferredSize(new Dimension(150, 50));
@@ -49,4 +55,50 @@ public class StreetFighter {
 
         frame.setVisible(true);
     }
+
+    private static void startTournament() {
+        if (selectedPlayers.isEmpty()) {
+            logArea.setText("Nenhum jogador selecionado para o torneio.\n");
+            return;
+        }
+
+        try {
+            if (selectedPlayers.size() == 1) {
+                logArea.setText("Iniciando torneio individual com 1 jogador.\n");
+                TournamentIndividual tournament = new TournamentIndividual("Torneio Individual", "Medalha de Ouro", 3);
+
+                try {
+                    tournament.addParticipant(selectedPlayers.get(0)); // Adiciona o único participante
+                } catch (Exception e) {
+                    logArea.append("Erro ao adicionar participante: " + e.getMessage() + "\n");
+                    return;
+                }
+
+                tournament.startTournament(); // Inicia o torneio individual
+                tournament.declareWinner();
+            } else {
+                logArea.setText("Iniciando torneio em equipe com " + selectedPlayers.size() + " jogadores.\n");
+                TournamentTeam tournament = new TournamentTeam("Torneio em Equipe", "Trofeu", selectedPlayers.size());
+
+                for (Player player : selectedPlayers) {
+                    try {
+                        tournament.addParticipant(player); // Adiciona cada participante
+                    } catch (Exception e) {
+                        logArea.append("Erro ao adicionar participante: " + player.getName() + " - " + e.getMessage() + "\n");
+                        return;
+                    }
+                }
+
+                tournament.startTournament(); // Inicia o torneio em equipe
+                tournament.declareWinner();
+            }
+        } catch (IllegalArgumentException e) {
+            logArea.append("Erro: Argumento inválido - " + e.getMessage() + "\n");
+        } catch (NullPointerException e) {
+            logArea.append("Erro: Tentativa de usar um objeto nulo - " + e.getMessage() + "\n");
+        } catch (Exception e) {
+            logArea.append("Erro ao iniciar o torneio: " + e.getMessage() + "\n");
+        }
+    }
+
 }

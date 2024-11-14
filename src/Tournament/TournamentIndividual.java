@@ -5,7 +5,7 @@ import Player.Player;
 public class TournamentIndividual extends Tournament {
     private int rounds;
 
-    public TournamentIndividual(String name, String prize, int maxParticipants, int rounds) {
+    public TournamentIndividual(String name, String prize, int maxParticipants) {
         super(name, prize, maxParticipants);
         this.rounds = rounds;
     }
