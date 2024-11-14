@@ -17,9 +17,17 @@ public abstract class Tournament implements TournamentInterface {
         this.participants = new ArrayList<>();
     }
 
-    public String getName() { return this.name; }
-    public String getPrize() { return this.prize; }
-    public ArrayList<Player> getParticipants() { return this.participants; }
+    public String getName() {
+        return this.name;
+    }
+
+    public String getPrize() {
+        return this.prize;
+    }
+
+    public ArrayList<Player> getParticipants() {
+        return this.participants;
+    }
 
     public void addParticipant(Player character) throws Exception {
         if (this.participants.size() < this.maxParticipants) {
@@ -31,6 +39,7 @@ public abstract class Tournament implements TournamentInterface {
 
     @Override
     public abstract void startTournament();
+
     @Override
     public abstract void declareWinner();
 }

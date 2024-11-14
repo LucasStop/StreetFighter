@@ -17,6 +17,7 @@ public class PlayerNinja extends Player {
 
         this.agility = agility;
     }
+
     public boolean dodge() {
         int dodgeChance = agility;
         int randomValue = (int) (Math.random() * 100) + 1;
@@ -41,8 +42,9 @@ public class PlayerNinja extends Player {
         super.levelUp();
         agility += 5;
     }
+
     @Override
-    public void displayStatus(){
+    public void displayStatus() {
         super.displayStatus();
         System.out.println("agility " + this.agility);
     }

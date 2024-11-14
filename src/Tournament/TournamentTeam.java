@@ -14,8 +14,13 @@ public class TournamentTeam extends Tournament {
         this.team2 = new ArrayList<>();
     }
 
-    public void addToTeam1(Player player) { team1.add(player); }
-    public void addToTeam2(Player player) { team2.add(player); }
+    public void addToTeam1(Player player) {
+        team1.add(player);
+    }
+
+    public void addToTeam2(Player player) {
+        team2.add(player);
+    }
 
     @Override
     public void startTournament() {
