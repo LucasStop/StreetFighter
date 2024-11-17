@@ -37,9 +37,7 @@ public abstract class Tournament implements TournamentInterface {
         }
     }
 
-    @Override
     public abstract void startTournament();
 
-    @Override
     public abstract void declareWinner();
 }

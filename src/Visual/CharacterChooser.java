@@ -7,12 +7,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CharacterChooser {
-    public static void chooseCharacter(String type, JTextArea logArea, List<Player> selectedPlayers) {
+    public static Player chooseCharacter(String type, JTextArea logArea, List<Player> selectedPlayers) {
         List<Player> players = CSVManager.loadCharactersFromCSV(type);
 
         if (players.isEmpty()) {
             logArea.setText("Nenhum personagem do tipo " + type + " encontrado.\n");
-            return;
+            return null;
         }
 
         JFrame chooseFrame = new JFrame("Escolher Personagem");
@@ -25,12 +25,15 @@ public class CharacterChooser {
         JList<String> playerList = new JList<>(model);
         playerList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
+        final Player[] selectedPlayer = {null};
+
         JButton selectButton = new JButton("Selecionar");
         selectButton.addActionListener(e -> {
             int index = playerList.getSelectedIndex();
             if (index >= 0) {
-                Player selectedPlayer = players.get(index);
-                displayPlayerInfo(selectedPlayer, logArea);
+                selectedPlayer[0] = players.get(index);
+                selectedPlayers.add(selectedPlayer[0]);
+                displayPlayerInfo(selectedPlayer[0], logArea);
                 chooseFrame.dispose();
             } else {
                 logArea.setText("Por favor, selecione um personagem.\n");
@@ -41,6 +44,8 @@ public class CharacterChooser {
         chooseFrame.add(selectButton, BorderLayout.SOUTH);
 
         chooseFrame.setVisible(true);
+
+        return selectedPlayer[0];
     }
 
     private static void displayPlayerInfo(Player player, JTextArea logArea) {

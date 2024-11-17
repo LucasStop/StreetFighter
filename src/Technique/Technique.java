@@ -1,7 +1,5 @@
 package Technique;
 
-import Player.Player;
-
 public class Technique {
     private String name;
     private int power;

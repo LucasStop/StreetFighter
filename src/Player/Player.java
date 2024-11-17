@@ -43,7 +43,6 @@ public class Player {
     }
 
     public int getStrength() {
-
         return this.strength;
     }
 

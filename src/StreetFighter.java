@@ -12,12 +12,12 @@ import Player.Player;
 
 public class StreetFighter {
     private static JTextArea logArea;
-    private static List<Player> selectedPlayers = new ArrayList<>(); // Armazena os jogadores selecionados para o torneio
+    private static final List<Player> selectedPlayers = new ArrayList<>();
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Street Fighter - Torneio");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setSize(1000, 600);
         frame.setLayout(new BorderLayout());
 
         JLabel titleLabel = new JLabel("Escolha seu personagem e entre no torneio!");
@@ -28,11 +28,21 @@ public class StreetFighter {
 
         JButton ninjaButton = new JButton("Ninja");
         ninjaButton.setPreferredSize(new Dimension(120, 50));
-        ninjaButton.addActionListener(e -> CharacterChooser.chooseCharacter("Ninja", logArea, selectedPlayers));
+        ninjaButton.addActionListener(e -> {
+            Player ninja = CharacterChooser.chooseCharacter("Ninja", logArea, selectedPlayers);
+            if (ninja != null) {
+                selectedPlayers.add(ninja);
+            }
+        });
 
         JButton guerreiroButton = new JButton("Guerreiro");
         guerreiroButton.setPreferredSize(new Dimension(120, 50));
-        guerreiroButton.addActionListener(e -> CharacterChooser.chooseCharacter("Guerreiro", logArea, selectedPlayers));
+        guerreiroButton.addActionListener(e -> {
+            Player guerreiro = CharacterChooser.chooseCharacter("Guerreiro", logArea, selectedPlayers);
+            if (guerreiro != null) {
+                selectedPlayers.add(guerreiro);
+            }
+        });
 
         JButton startTournamentButton = new JButton("Iniciar Torneio");
         startTournamentButton.setPreferredSize(new Dimension(150, 50));
@@ -65,8 +75,8 @@ public class StreetFighter {
         }
 
         try {
-            if (selectedPlayers.size() == 1) {
-                logArea.setText("Iniciando torneio individual com 1 jogador.\n");
+            if (selectedPlayers.size() == 2) {
+                logArea.setText("Iniciando torneio individual com 2 jogadores.\n");
                 TournamentIndividual tournament = new TournamentIndividual("Torneio Individual", "Medalha de Ouro", 3);
 
                 try {
